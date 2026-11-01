@@ -1,0 +1,29 @@
+# 1. 确认镜像覆盖参数还在（新开窗口必须能看到这行）
+echo "SBT_OPTS=$SBT_OPTS"
+
+# 2. 删掉残缺的 boot（只是缓存，会重新下载）
+rm -rf ~/.sbt/boot
+
+# 3. 重跑（这次要重新下载 scala3 编译器全家桶，可能要几分钟，耐心等）
+sbt "clean; compile; test" 2>&1 | tee /tmp/sbt.log
+
+mv ~/.cache/coursier ~/.cache/coursier.bak
+sbt "clean; compile; test" 2>&1 | tee /tmp/sbt.log
+
+# 1. 确认镜像覆盖参数还在（新开窗口必须能看到这行）
+echo "SBT_OPTS=$SBT_OPTS"
+
+# 2. 删掉残缺的 boot（只是缓存，会重新下载）
+rm -rf ~/.sbt/boot
+
+# 3. 重跑（这次要重新下载 scala3 编译器全家桶，可能要几分钟，耐心等）
+sbt "clean; compile; test" 2>&1 | tee /tmp/sbt.log
+
+
+git clone https://github.com/schoeberl/chisel-examples.git
+cd chisel-examples/hello-world
+make
+sbt test
+
+git config --global user.name "fantianchen2345"
+git config --global user.email "fantianchen2345@gmail.com"
