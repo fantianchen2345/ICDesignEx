@@ -27,3 +27,5 @@ sbt test
 
 git config --global user.name "fantianchen2345"
 git config --global user.email "fantianchen2345@gmail.com"
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDNO4SgUGeylnIgRfkCp1q532IM3r1F7btbN8P/yzTQ fantianchen2345@gmail.com
